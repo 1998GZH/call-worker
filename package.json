@@ -1,0 +1,8 @@
+{
+  "name": "call-work",
+  "version": "1.0.0",
+  "description": "支持动态创建链式调用web worker的工具库",
+  "main": "src/index.js",
+  "author": "1998GZH <1226100138@qq.com>",
+  "license": "MIT"
+}
