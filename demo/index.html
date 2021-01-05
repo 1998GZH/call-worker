@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>call-worker demo</title>
+</head>
+<body>
+  <script type="module">
+    import CallWorker from '../src/index.js';
+
+    async function demo() {
+      const fn = num => {
+        let total = 0;
+        for (let i = 0; i < num; i++) {
+          total += i;
+        }
+        return total;
+      }
+      const worker = new CallWorker(fn);
+      try {
+        const startTime = Date.now();
+        const result = await worker.start(100000000);
+        console.log(`duration: ${Date.now() - startTime} ms`);
+        console.log('result: ', result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    demo();
+  </script>
+  
+  <h1>call-worker</h1>
+</body>
+</html>
